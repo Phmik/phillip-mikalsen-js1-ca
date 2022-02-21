@@ -1,32 +1,35 @@
-const dndURL = "https://api.open5e.com/classes/";
-const dndContainer = document.querySelector(".dndContainer")
 
-async function getDND() {
-    try {
-        const response = await fetch(dndURL);
+
+const mountURL = "https://ffxivcollect.com/api/mounts/";
+const resultContainer = document.querySelector(".mountContainer");
+
+async function getMounts() {
+    try{    
+
+        resultContainer.innerHTML = "";
+
+        const response = await fetch(mountURL);
+
         const results = await response.json();
-        const dndResults = results.results
 
-        for(let i = 0; i < dndResults.length; i++) {
-            console.log(dndResults[i].name);
+        const mounts = results.results;
+            for(let i = 0; i < mounts.length; i++) {
 
-            if(i === 3) {
-                break;
+                if(i === 3) {
+                    break;
+                }
+                const mountsResult = mounts[i];
+
+                    resultContainer.innerHTML += `
+                                                <a href="details.html class="mount-cards">
+                                                    <h2>${mountsResult.name}</h2>
+                                                    <img src="${mountsResult.image}"></img>
+                                                </a>`
             }
-
-            const dnd = dndResults[i];
-
-            dndContainer.innerHTML += `
-            <div class="dnd-info">
-                <ul>
-                    <li><a href="details.html?name=${dnd.name}">Name ${dnd.name}</a></li>
-                    <li>Hit: ${dnd.hit_dice}</li>
-                </ul>
-            </div>`
         }
-    } catch(error){
-        console.log(error);
-    }
-}
 
-getDND();
+        catch(error) {
+            console.log(error);
+        }
+}
+getMounts();
