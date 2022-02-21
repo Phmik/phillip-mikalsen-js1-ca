@@ -1,5 +1,3 @@
-
-
 const mountURL = "https://ffxivcollect.com/api/mounts/";
 const resultContainer = document.querySelector(".mountContainer");
 
