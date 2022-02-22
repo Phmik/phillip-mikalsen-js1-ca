@@ -14,15 +14,15 @@ async function fetchMount() {
         
         const response = await fetch(idURL);
 
-        const results = await response.json();
-        
+        const mountResult = await response.json();
+
         if(!response.ok) {
 
             throw new Error(`Ouch. Problem loading the API 
                             ${results.error}: Error ${results.status}`)
         }
         else {
-        createHtml(results);
+        createHtml(mountResult);
         }
     }
     catch(error) {
@@ -32,24 +32,24 @@ async function fetchMount() {
 
 fetchMount();
 
-function createHtml(results) {
+function createHtml(mountResult) {
     try {
         
     document.title = "";
-    document.title = `${results.name}`
+    document.title = `${mountResult.name}`
     mountDetails.innerHTML = `
                             <div class="mountsHead">
-                                <h1>${results.name}</h1>
-                                <img src="${results.image}"></img>
+                                <h1>${mountResult.name}</h1>
+                                <img src="${mountResult.image}"></img>
                             </div>
                             <div class="mountsInfo">
-                                <p>${results.description}<p>
+                                <p>${mountResult.description}<p>
                                 <ul>
-                                    <li>Movement: ${results.movement}</li>
-                                    <li>Owned: ${results.owned}</li>
-                                    <li>ID: ${results.id}</li>
+                                    <li>Movement: ${mountResult.movement}</li>
+                                    <li>Owned: ${mountResult.owned}</li>
+                                    <li>ID: ${mountResult.id}</li>
                                 </ul>
-                                <p>${results.tooltip}
+                                <p>${mountResult.tooltip}
                             </div>`; 
     }
     catch(error){

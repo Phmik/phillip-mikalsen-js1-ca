@@ -106,3 +106,38 @@ a {
         background: rgba(255, 0, 0, 0.1);
         margin: 20px;
   }
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.1rem;
+    max-width: 20rem;
+    background: #fff;
+    padding: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+.form-container input {
+    outline: none;
+    padding: 10px;
+}
+
+.form-error {
+    color: rgb(206, 6, 6);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.contact-h1 {
+    display: flex;
+    justify-content: center;
+}
+    
