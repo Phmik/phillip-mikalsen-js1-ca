@@ -22,7 +22,7 @@ async function fetchMount() {
                             ${results.error}: Error ${results.status}`)
         }
         else {
-        createHtml(mountResult);
+        renderOneItem(mountResult);
         }
     }
     catch(error) {
@@ -32,7 +32,7 @@ async function fetchMount() {
 
 fetchMount();
 
-function createHtml(mountResult) {
+function renderOneItem(mountResult) {
     try {
         
     document.title = "";
