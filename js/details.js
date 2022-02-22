@@ -15,9 +15,11 @@ async function fetchMount() {
         const response = await fetch(idURL);
 
         const results = await response.json();
-        console.log(results)
-        if(results.error) {
-            mountDetails.innerHTML = displayError(`Ouch. Problem loading the API <p>${results.error}: Error ${results.status}</p>`)
+        
+        if(!response.ok) {
+
+            throw new Error(`Ouch. Problem loading the API 
+                            ${results.error}: Error ${results.status}`)
         }
         else {
         createHtml(results);
