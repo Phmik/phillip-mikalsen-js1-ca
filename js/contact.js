@@ -11,10 +11,12 @@ const contactButton = document.querySelector(".contact-button");
 const validateSuccess = document.querySelector(".contact-h2");
 
 
+contactForm.addEventListener("submit", validateForm);
+
 function validateForm(event) {
-   event.preventDefault();
+    event.preventDefault();
    try {
-   if(validateName(fullName.value) === true) {
+   if(validateName(fullName.value.trim()) === true) {
         fullNameError.style.display = "none";
     } else {
         fullNameError.style.display = "block";
@@ -37,6 +39,8 @@ function validateForm(event) {
     } else {
         emailError.style.display = "block";
     }
+
+
     } catch(error) {
         displayError("Please check your details")
     }
@@ -44,7 +48,7 @@ function validateForm(event) {
     
 
 
-contactForm.addEventListener("submit", checkForm);
+
 
 function checkLength(value, characters) {
     if (value.trim().length > characters) {
@@ -67,10 +71,6 @@ function validateEmail(email) {
        return letterMatches;
     }
 
-    function validationCheck() {
-        validation.every(Boolean)
+    function validateSuccessful() {
+        validateSuccess.style.display = "block";
     }
-
-function checkForm() {
-    
-}
