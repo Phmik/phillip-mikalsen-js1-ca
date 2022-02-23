@@ -44,7 +44,7 @@ function validateForm(event) {
     
 
 
-contactForm.addEventListener("submit", validateForm);
+contactForm.addEventListener("submit", checkForm);
 
 function checkLength(value, characters) {
     if (value.trim().length > characters) {
@@ -70,3 +70,7 @@ function validateEmail(email) {
     function validationCheck() {
         validation.every(Boolean)
     }
+
+function checkForm() {
+    
+}
