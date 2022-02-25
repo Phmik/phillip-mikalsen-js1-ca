@@ -6,9 +6,7 @@ async function getMounts() {
     try{   
 
         const response = await fetch(mountURL);
-
         const results = await response.json();
-
         const mounts = results.results;
 
         resultContainer.innerHTML = "";
@@ -26,7 +24,6 @@ async function getMounts() {
                                                 <h2>${mountsResult.name}</h2>
                                                 <img src="${mountsResult.image}"></img>
                                             </a>`
-                
             }
         }
         catch(error) {

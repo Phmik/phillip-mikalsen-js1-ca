@@ -1,11 +1,7 @@
 const mountDetails = document.querySelector(".mountDetails");
-
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
-
 const mountId = params.get("id")
-
 const idURL = "https://ffxivcollect.com/api/mounts/" + mountId;
 
 async function fetchMount() {
@@ -13,7 +9,6 @@ async function fetchMount() {
     try {
         
         const response = await fetch(idURL);
-
         const mountResult = await response.json();
 
         if(!response.ok) {
@@ -33,6 +28,7 @@ async function fetchMount() {
 fetchMount();
 
 function renderOneItem(mountResult) {
+    
     try {
         
     document.title = "";
